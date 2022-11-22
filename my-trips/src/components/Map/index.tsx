@@ -1,6 +1,20 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
-export default function Map() {
+interface Place {
+  id: string;
+  name: string;
+  slug: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+}
+
+export interface MapProps {
+  places?: Place[];
+}
+
+export function Map({ places }: MapProps) {
   return (
     <MapContainer
       center={[51.505, -0.09]}
