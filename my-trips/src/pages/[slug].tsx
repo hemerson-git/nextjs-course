@@ -1,8 +1,11 @@
-import { client } from 'graphql/client';
-import { GET_PAGES, GET_PAGES_BY_SLUG } from 'graphql/queries';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+import { client } from 'graphql/client';
+
 import PageTemplate, { PageTemplateProps } from 'templates/Pages';
+
+import { GetPageBySlugQuery, PagesQuery } from 'graphql/generated/graphql';
+import { GET_PAGES, GET_PAGES_BY_SLUG } from 'graphql/queries';
 
 // getStaticPaths => used to generate the urls in build time /about. /trips/vitoria-da-conquista
 // getStaticProps => used to search page data (static)
@@ -18,7 +21,7 @@ export default function Page({ heading, body }: PageTemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const { pages } = await client.request(GET_PAGES, {
+  const { pages } = await client.request<PagesQuery>(GET_PAGES, {
     first: 3,
   });
 
@@ -30,13 +33,11 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { page } = await client.request(GET_PAGES_BY_SLUG, {
+  const { page } = await client.request<GetPageBySlugQuery>(GET_PAGES_BY_SLUG, {
     slug: `${params?.slug}`,
   });
 
   if (!page) return { notFound: true };
-
-  console.log(page);
 
   return {
     props: {

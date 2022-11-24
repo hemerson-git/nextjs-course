@@ -17,7 +17,7 @@ export interface MapProps {
 export function Map({ places }: MapProps) {
   return (
     <MapContainer
-      center={[51.505, -0.09]}
+      center={[-14.8931516, -40.8447112]}
       zoom={3}
       style={{ height: '100%', width: '100%' }}
     >
@@ -25,11 +25,11 @@ export function Map({ places }: MapProps) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {places?.map((place) => (
+        <Marker position={[place.location.latitude, place.location.longitude]}>
+          <Popup>{place.name}</Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
