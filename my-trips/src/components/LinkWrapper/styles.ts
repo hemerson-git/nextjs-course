@@ -6,15 +6,14 @@ export const Wrapper = styled.div`
 
   top: var(--medium);
   right: var(--medium);
+  cursor: pointer;
 
   a {
     color: var(--white);
     transition: color 0.3s ease-in-out;
-  }
 
-  &:hover {
-    a {
-      color: var(--highlight);
+    &:hover {
+      color: var(--highlight) !important;
     }
   }
 `;

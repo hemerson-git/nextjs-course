@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 interface Place {
@@ -15,10 +16,12 @@ export interface MapProps {
 }
 
 export function Map({ places }: MapProps) {
+  const router = useRouter();
+
   return (
     <MapContainer
       center={[-14.8931516, -40.8447112]}
-      zoom={3}
+      zoom={4.2}
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
@@ -26,7 +29,14 @@ export function Map({ places }: MapProps) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {places?.map((place) => (
-        <Marker position={[place.location.latitude, place.location.longitude]}>
+        <Marker
+          position={[place.location.latitude, place.location.longitude]}
+          eventHandlers={{
+            click: () => {
+              router.push(`/place/${place.slug}`);
+            },
+          }}
+        >
           <Popup>{place.name}</Popup>
         </Marker>
       ))}

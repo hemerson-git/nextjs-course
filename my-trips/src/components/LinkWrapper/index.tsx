@@ -11,7 +11,7 @@ export function LinkWrapper({ children, href, ...rest }: LinkWrapperProps) {
   return (
     <Wrapper>
       <Link href={href} {...rest}>
-        {children}
+        <a>{children}</a>
       </Link>
     </Wrapper>
   );
