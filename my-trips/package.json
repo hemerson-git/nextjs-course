@@ -11,7 +11,8 @@
     "prepare": "cd .. && husky install front/.husky",
     "test": "jest",
     "postinstall": "cd .. && husky install front/.husky",
-    "test:watch": "yarn test --watch"
+    "test:watch": "yarn test --watch",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "husky": {
     "hooks": {
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@graphql-codegen/cli": "2.13.12",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",
@@ -66,6 +68,7 @@
     "next-sitemap": "^1.9.12",
     "npm-force-resolutions": "^0.0.10",
     "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "@graphql-codegen/client-preset": "1.1.5"
   }
 }
