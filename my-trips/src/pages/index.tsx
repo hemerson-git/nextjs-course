@@ -9,8 +9,8 @@ const Map = dynamic(() => import('components/Map').then((map) => map.Map), {
 export default function Home() {
   return (
     <>
-      <LinkWrapper href="/">
-        {false ? <X size={24} /> : <Info size={24} />}
+      <LinkWrapper href="/about" aria-label="About">
+        <Info size={24} />
       </LinkWrapper>
 
       <Map />

@@ -7,10 +7,12 @@ interface LinkWrapperProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-export function LinkWrapper({ children, href }: LinkWrapperProps) {
+export function LinkWrapper({ children, href, ...rest }: LinkWrapperProps) {
   return (
     <Wrapper>
-      <Link href={href}>{children}</Link>
+      <Link href={href} {...rest}>
+        {children}
+      </Link>
     </Wrapper>
   );
 }
