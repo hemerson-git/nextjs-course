@@ -12,6 +12,10 @@ export const Content = styled.section`
   margin: auto;
 `;
 
+export const Wrapper = styled.div`
+  padding: var(--large) var(--medium);
+`;
+
 export const Heading = styled.h1`
   font-size: var(--large);
   margin-bottom: var(--large);

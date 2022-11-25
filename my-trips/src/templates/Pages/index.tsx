@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { X } from 'phosphor-react';
 
 import { LinkWrapper } from 'components/LinkWrapper';
-import { Content, Heading, Body } from './styles';
+import { Content, Heading, Body, Wrapper } from './styles';
 
 export interface PageTemplateProps {
   heading: string;
@@ -12,15 +12,17 @@ export interface PageTemplateProps {
 export default function PageTemplate({ body, heading }: PageTemplateProps) {
   return (
     <Content>
-      <LinkWrapper href="/">
-        <X size={24} />
-      </LinkWrapper>
+      <Wrapper>
+        <LinkWrapper href="/">
+          <X size={24} />
+        </LinkWrapper>
 
-      <Heading>{heading}</Heading>
+        <Heading>{heading}</Heading>
 
-      <Body>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
-      </Body>
+        <Body>
+          <div dangerouslySetInnerHTML={{ __html: body }} />
+        </Body>
+      </Wrapper>
     </Content>
   );
 }
