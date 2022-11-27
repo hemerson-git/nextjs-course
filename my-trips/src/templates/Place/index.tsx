@@ -51,7 +51,7 @@ export function PlaceTemplate({ place }: PlaceTemplateProps) {
               width={image.width}
               height={image.height}
               objectFit="cover"
-              quality={80}
+              quality={85}
             />
           ))}
         </Gallery>
