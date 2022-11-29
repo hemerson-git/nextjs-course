@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { NextSeo } from 'next-seo';
 import { X } from 'phosphor-react';
 
 import { Body, Container, Gallery, Title, Wrapper } from './styles';
@@ -18,6 +19,7 @@ export interface PlaceTemplateProps {
     name: string;
     description: {
       html?: string;
+      text?: string;
     };
 
     gallery: ImageProps[];
@@ -31,6 +33,28 @@ export function PlaceTemplate({ place }: PlaceTemplateProps) {
 
   return (
     <Container>
+      <NextSeo
+        title={`${place.name} | My Trips`}
+        description={place.description?.text || ''}
+        canonical="https://my-trips-hemerson.vercel.com"
+        openGraph={{
+          url: 'https://my-trips-hemerson.vercel.com',
+          title: `My Trips | ${place.name}`,
+          description:
+            place.description?.text ||
+            'A simple project to show in a map the places' +
+              'that I went and show more information and photos when clicked!',
+          images: [
+            {
+              url: place.gallery[0]?.url,
+              width: place.gallery[0]?.width,
+              height: place.gallery[0]?.height,
+              alt: place.name,
+            },
+          ],
+        }}
+      />
+
       <Wrapper>
         <LinkWrapper href="/">
           <X size={24} aria-label="Go back to Home" />
