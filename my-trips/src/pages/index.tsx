@@ -10,9 +10,10 @@ export default function Home({ places }: MapProps) {
 
 export const getStaticProps = async () => {
   const { places } = await client.request<GetPlacesQuery>(GET_PLACES);
+  const MINUTES_IN_HOUR = 60;
 
   return {
-    revalidate: 3600,
+    revalidate: MINUTES_IN_HOUR,
     props: {
       places,
     },

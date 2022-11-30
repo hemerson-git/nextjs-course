@@ -31,9 +31,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
 
   if (!place) return { notFound: true };
+  const MINUTES_IN_HOUR = 60;
 
   return {
-    revalidate: 3600,
+    revalidate: MINUTES_IN_HOUR,
     props: {
       place,
     },
