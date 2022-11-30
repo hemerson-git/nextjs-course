@@ -1,0 +1,13 @@
+{
+  "name": "Next_js_course",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "hemerson-git <48595787+hemerson-git@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
