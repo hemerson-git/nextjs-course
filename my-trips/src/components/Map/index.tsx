@@ -1,7 +1,13 @@
 import { latLng, latLngBounds } from 'leaflet';
 import { useRouter } from 'next/router';
-import { Plus } from 'phosphor-react';
-import { MapContainer, TileLayer, Marker, ZoomControl } from 'react-leaflet';
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  ZoomControl,
+  MapConsumer,
+} from 'react-leaflet';
+import { MapWrapper } from './styles';
 
 interface Place {
   id: string;
@@ -52,30 +58,46 @@ export function Map({ places }: MapProps) {
   const bounds = latLngBounds(corner1, corner2);
 
   return (
-    <MapContainer
-      center={[-14.8931516, -40.8447112]}
-      zoom={3.4}
-      style={{ height: '100%', width: '100%' }}
-      bounceAtZoomLimits
-      maxBounds={bounds}
-      maxBoundsViscosity={1}
-      zoomControl={false}
-    >
-      <CustomTileLayer />
-      <CustomZoomControls />
-      {places?.map((place) => (
-        <Marker
-          key={place.id}
-          position={[place.location.latitude, place.location.longitude]}
-          eventHandlers={{
-            click: () => {
-              router.push(`/place/${place.slug}`);
-            },
+    <MapWrapper>
+      <MapContainer
+        center={[-14.8931516, -40.8447112]}
+        zoom={3.4}
+        style={{ height: '100%', width: '100%' }}
+        bounceAtZoomLimits
+        maxBounds={bounds}
+        maxBoundsViscosity={1}
+        zoomControl={false}
+      >
+        <MapConsumer>
+          {(map) => {
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth;
+
+            if (width < 768) {
+              map.setMinZoom(3);
+            }
+
+            return null;
           }}
-        >
-          {/* <Popup>{place.name}</Popup> */}
-        </Marker>
-      ))}
-    </MapContainer>
+        </MapConsumer>
+        <CustomTileLayer />
+        <CustomZoomControls />
+        {places?.map((place) => (
+          <Marker
+            key={place.id}
+            position={[place.location.latitude, place.location.longitude]}
+            eventHandlers={{
+              click: () => {
+                router.push(`/place/${place.slug}`);
+              },
+            }}
+          >
+            {/* <Popup>{place.name}</Popup> */}
+          </Marker>
+        ))}
+      </MapContainer>
+    </MapWrapper>
   );
 }

@@ -33,6 +33,11 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 
+  p::selection, a::selection, span::selection {
+    background-color: var(--highlight);
+    color: var(--white);
+  }
+
   p, a {
     font-size: 2rem;
     line-height: var(--medium);
