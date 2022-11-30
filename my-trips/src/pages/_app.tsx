@@ -15,6 +15,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
 
         <meta name="theme-color" content="#06092B" />
+        <meta
+          name="google-site-verification"
+          content="ys5_lX-3SwdhbIg5A4eSox0usX1N_sfmf7RYQUjOnaA"
+        />
       </Head>
 
       <DefaultSeo {...SEO} />
