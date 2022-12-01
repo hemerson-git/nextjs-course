@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mytrips-hemerson.vercel.app
+
+# Sitemaps
+Sitemap: https://mytrips-hemerson.vercel.app/sitemap.xml
