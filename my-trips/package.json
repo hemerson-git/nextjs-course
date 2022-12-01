@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint src --max-warnings=0",
     "prepare": "cd .. && husky install front/.husky",
     "test": "jest",
-    "postinstall": "cd .. && husky install front/.husky",
+    "postinstall": "cd .. && husky install front/.husky ",
     "test:watch": "yarn test --watch",
     "codegen": "graphql-codegen --config codegen.ts"
   },
@@ -68,7 +69,7 @@
     "jest": "^27.4.7",
     "jest-styled-components": "^7.0.8",
     "lint-staged": "^12.1.7",
-    "next-sitemap": "^1.9.12",
+    "next-sitemap": "^3.1.32",
     "npm-force-resolutions": "^0.0.10",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"
