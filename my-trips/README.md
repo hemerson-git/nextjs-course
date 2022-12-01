@@ -5,17 +5,17 @@ and shows some pictures and a description when You click it.
 
 ## Preview 👁
 
-Access Here - [My Trips]('https://my-trips-hemerson-git.vercel.app/')
+Access Here - [My Trips](https://my-trips-hemerson-git.vercel.app)<br /><br />
 <img width="300" src="./.github/preview.png"/>
 
 ## Technologies 💻
 
-Next.JS
-Styled-components
-GraphQL + GraphCMS
-ReactJS
-Jest
-Leaflet + Mapbox
+Next.JS<br />
+Styled-components<br />
+GraphQL + GraphCMS<br />
+ReactJS<br />
+Jest<br />
+Leaflet + Mapbox<br />
 
 ## Running 🏃
 
