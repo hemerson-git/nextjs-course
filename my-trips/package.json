@@ -30,15 +30,18 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "leaflet": "^1.7.1",
     "next": "12.0.8",
     "next-pwa": "^5.4.4",
     "next-seo": "^5.14.1",
+    "next-sitemap": "^3.1.32",
     "nextjs-progressbar": "^0.0.16",
     "phosphor-react": "^1.4.1",
     "react": "17.0.2",
+    "react-awesome-reveal": "^4.1.0",
     "react-dom": "17.0.2",
     "react-leaflet": "^3.2.5",
     "styled-components": "5.3.3",
@@ -69,7 +72,6 @@
     "jest": "^27.4.7",
     "jest-styled-components": "^7.0.8",
     "lint-staged": "^12.1.7",
-    "next-sitemap": "^3.1.32",
     "npm-force-resolutions": "^0.0.10",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"

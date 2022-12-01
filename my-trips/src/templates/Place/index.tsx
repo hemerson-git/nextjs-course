@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import { X } from 'phosphor-react';
+import { Fade } from 'react-awesome-reveal';
 
 import { Body, Container, Gallery, Title, Wrapper } from './styles';
 
@@ -68,15 +69,17 @@ export function PlaceTemplate({ place }: PlaceTemplateProps) {
 
         <Gallery>
           {place.gallery.map((image, index) => (
-            <Image
-              src={image.url}
-              key={`photo-${index}`}
-              alt={place.name}
-              width={image.width}
-              height={image.height}
-              objectFit="cover"
-              quality={85}
-            />
+            <Fade cascade>
+              <Image
+                src={image.url}
+                key={`photo-${index}`}
+                alt={place.name}
+                width={image.width}
+                height={image.height}
+                objectFit="cover"
+                quality={85}
+              />
+            </Fade>
           ))}
         </Gallery>
       </Wrapper>
